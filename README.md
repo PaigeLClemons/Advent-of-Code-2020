@@ -1,4 +1,4 @@
-#2021 Advent of Code
+# 2021 Advent of Code
 
 I'm going to propose Java for this in most cases becasue ✨portability✨ between Mac and Windows is easiest with Java.
 
