@@ -6,3 +6,4 @@ I'm going to propose Java for this in most cases becasue ✨portability✨ betwe
 
 [Day 2 Prompt](https://adventofcode.com/2021/day/2)
 
+[Day 3 Prompt](https://adventofcode.com/2021/day/3)
