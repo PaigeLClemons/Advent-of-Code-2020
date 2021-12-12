@@ -11,14 +11,17 @@ public class Day3{
             Scanner scanner = new Scanner(inputFile);
             String gamma = "";
             String epsilon = "";
-            int gammaDigit = -1;
-            int epsilonDigit = -1;
             ArrayList<String> binaryNums = new ArrayList<String>();
+            ArrayList<String> binaryNums2 = new ArrayList<String>();
+            // int[] zeroCount = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+            // int[] oneCount = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
             int[] zeroCount = {0, 0, 0, 0, 0};
             int[] oneCount = {0, 0, 0, 0, 0};
 
             while(scanner.hasNextLine()){
-                binaryNums.add(scanner.nextLine());
+                String temp = scanner.nextLine();
+                binaryNums.add(temp);
+                binaryNums2.add(temp);
             }
 
             for(int i = 0; i < binaryNums.size(); i++){
@@ -44,9 +47,40 @@ public class Day3{
                 }
             }
 
-            System.out.println("Gamma = " + gamma);
-            System.out.println("Epsilon = " + epsilon);
-            
+            System.out.println("Power Consumption = " + (Integer.parseInt(epsilon, 2) * Integer.parseInt(gamma, 2)));
+
+
+            //Gammma helps find Oxygen
+            //Epsilon helps find CO2
+
+            for(int j = 0; j < gamma.length(); j++){
+                for(int i = 0; i < binaryNums.size(); i++){
+                    if(binaryNums.size() > 1){
+                        if(binaryNums.get(i).charAt(j) != gamma.charAt(j)){
+                            binaryNums.remove(i);
+                            i--;
+                        }
+                    }
+                }
+            }
+
+            for(int j = 0; j < epsilon.length(); j++){
+                for(int i = 0; i < binaryNums2.size(); i++){
+                    if(binaryNums2.size() > 1){
+                        if(binaryNums2.get(i).charAt(j) != epsilon.charAt(j)){
+                            binaryNums2.remove(i);
+                            i--;
+                        }
+                    }
+                }
+            }
+
+            System.out.println(binaryNums.size());
+            System.out.println(binaryNums.get(0));
+           
+
+            //System.out.println("Life Support Rating = " + (Integer.parseInt(binaryNums.get(0), 2) * Integer.parseInt(binaryNums2.get(0), 2)));
+
             
             scanner.close();
 
