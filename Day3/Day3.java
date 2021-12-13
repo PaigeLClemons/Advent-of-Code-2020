@@ -47,6 +47,9 @@ public class Day3{
                 }
             }
 
+            System.out.println("Gamma = " + gamma);
+            System.out.println("Epsilon = " + epsilon);
+
             System.out.println("Power Consumption = " + (Integer.parseInt(epsilon, 2) * Integer.parseInt(gamma, 2)));
 
 
@@ -69,8 +72,14 @@ public class Day3{
 
                     for(int i = 0; i < binaryNums.size(); i++){
                         if(binaryNums.size() > 1){
-                            if(zeroCount2[j] != oneCount2[j]){
-                                if(binaryNums.get(i).charAt(j) != gamma.charAt(j)){
+                            if(zeroCount2[j] > oneCount2[j]){
+                                if(binaryNums.get(i).charAt(j) == '1'){
+                                    binaryNums.remove(i);
+                                    i--;
+                                }
+                            }
+                            else if(zeroCount2[j] < oneCount2[j]){
+                                if(binaryNums.get(i).charAt(j) == '0'){
                                     binaryNums.remove(i);
                                     i--;
                                 }
@@ -104,8 +113,14 @@ public class Day3{
                     }
                     for(int i = 0; i < binaryNums2.size(); i++){
                         if(binaryNums2.size() > 1){
-                            if(zeroCount3[j] != oneCount3[j]){
-                                if(binaryNums2.get(i).charAt(j) != epsilon.charAt(j)){
+                            if(zeroCount3[j] < oneCount3[j]){
+                                if(binaryNums2.get(i).charAt(j) == '1'){
+                                    binaryNums2.remove(i);
+                                    i--;
+                                }
+                            }
+                            else if(zeroCount3[j] > oneCount3[j]){
+                                if(binaryNums2.get(i).charAt(j) == '0'){
                                     binaryNums2.remove(i);
                                     i--;
                                 }
